@@ -30,6 +30,12 @@ connectDB();
 
 app.use(express.json());
 
+// Define a route for GET requests to the root URL '/'
+app.get('/', (req, res) => {
+  res.send('Hello, your API is working!');
+});
+
+// Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

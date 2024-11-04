@@ -1,9 +1,14 @@
-// routes/userRoutes.js
 const express = require('express');
 const router = express.Router();
-const userController = require('../Controller/UserController');
+const userController = require('../Controller/EmployeeController');
+const CompanyController=require('../Controller/CompanyController');
 
-router.post('/users', userController.createUser);
-router.get('/users', userController.getUsers);
+// Employee Details
+router.post('/user/Create', userController.createUser);
+router.get('/user/getuser', userController.getUsers);
 
-module.exports = router;
+// Company Details
+router.post('/Company/Create',CompanyController.createCompany);
+router.get('/Company/getAllCompany',CompanyController.getAllCompany);
+
+module.exports = router; // Ensure the router is exported
