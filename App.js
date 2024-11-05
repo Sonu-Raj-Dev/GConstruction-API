@@ -34,6 +34,8 @@ const app = express();
 // Call the connectDB function to connect to the database
 connectDB();
 
+
+
 // Middleware to parse incoming JSON requests
 app.use(express.json());
 
