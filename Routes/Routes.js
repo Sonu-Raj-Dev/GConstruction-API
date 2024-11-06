@@ -4,11 +4,11 @@ const userController = require('../Controller/DashBoardController');
 const CompanyController=require('../Controller/CompanyController');
 
 // Employee Details
-router.post('/user/Create', userController.createUser);
-router.get('/user/getuser', userController.getUsers);
+router.post('/DashBoard/Create', userController.Create);
+router.get('/DashBoard/getuser', userController.getUsers);
 
 // Company Details
-router.post('/Company/Create',CompanyController.createCompany);
+router.post('/Company/Create',CompanyController.Create);
 router.get('/Company/getAllCompany',CompanyController.getAllCompany);
 
 module.exports = router; // Ensure the router is exported

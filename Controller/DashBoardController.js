@@ -17,7 +17,7 @@ exports.getUsers = async (req, res) => {
 exports.Create = async (req,res) => {
   try {
   const Data=req.body;
-    const Users = await User.intsert(Data); 
+    const Users = await userService.Create(Data); 
      // No callback here, just await the result
     console.log('Users:', Users);  // Logs the users
     return Users;  // Return the fetched users

@@ -1,7 +1,7 @@
 
 const CommonService = require('./CommonService/CommonService');
 
-exports.createCompany = async (req, res) => {
+exports.Create = async (req, res) => {
   try {
     const Company = await userService.CreateCompany(req.body);
     res.status(201).json({ success: true, data: Company });
