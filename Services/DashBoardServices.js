@@ -4,15 +4,17 @@ const User = require('../Models/DashBoardModel');
 
 exports.getAllUsers = async () => {
   try {
-    const users = await User.find();
-    // No callback here, just await the result
-    console.log('Users:', users);  // Logs the users
-    return users;  // Return the fetched users
+    // Use populate to fetch company details based on CompanyId
+    const users = await User.find().populate('CompanyId', 'CompanyName');  // 'CompanyId' is the field to populate, 'CompanyName' is the field you want from the Company collection
+
+    console.log('Users with Company Names:', users);  // Logs users with populated company details
+    return users;  // Return the fetched users with company details
   } catch (err) {
     console.error('Error fetching users:', err);  // Log and handle any errors
     throw err;  // Rethrow the error for upstream error handling
   }
 };
+
 
 exports.Create = async (Data) => {
   try {
