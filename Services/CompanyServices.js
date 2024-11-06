@@ -7,7 +7,7 @@ exports.Create = async (Data) => {
     console.log("Request Data:", Data);
     
     // Check if `id` is present in the Data object
-    if (Data.id) {
+    if (Data._id) {
       // Update the existing company document
       const response = await Company.findByIdAndUpdate(
         Data.id,  // Document ID for update
