@@ -19,7 +19,7 @@ exports.getAllUsers = async () => {
 exports.Create = async (Data) => {
   try {
     if (Data._id) {
-      const response = await user.findByIdAndUpdate(
+      const response = await User.findByIdAndUpdate(
         Data._id,  // Document ID for update
         Data,     // Updated data
         { new: true, upsert: true }  // Options to return the updated doc and insert if not found
