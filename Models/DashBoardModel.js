@@ -9,6 +9,7 @@ const DashBoardSchema = new mongoose.Schema({
   LastName: { type: String },
   ModifiedBy: { type: String },
   ModifiedDate: { type: String},
+  Phone:{type:String},
   CompanyId:{
     type: mongoose.Schema.Types.ObjectId,
     ref:"tblCompany"
