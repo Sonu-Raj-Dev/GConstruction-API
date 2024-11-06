@@ -3,6 +3,7 @@ const CompanyService = require('../Services/CompanyServices');
 
 exports.Create = async (req, res) => {
   try {
+    console.log("request:",req);
     const Company = await CompanyService.Create(req.body);
     res.status(201).json({ success: true, data: Company });
   } catch (error) {
