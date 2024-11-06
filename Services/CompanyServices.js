@@ -10,7 +10,7 @@ exports.Create = async (Data) => {
     if (Data._id) {
       // Update the existing company document
       const response = await Company.findByIdAndUpdate(
-        Data.id,  // Document ID for update
+        Data._id,  // Document ID for update
         Data,     // Updated data
         { new: true, upsert: true }  // Options to return the updated doc and insert if not found
       );
