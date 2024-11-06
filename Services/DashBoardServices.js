@@ -14,13 +14,12 @@ exports.getAllUsers = async () => {
   }
 };
 
-exports.Create = async (req,res) => {
+exports.Create = async (data) => {
   try {
-  const Data=req.body;
-    const User = await User.intsert(Data); 
+    const response = await User.insertMany(data); 
      // No callback here, just await the result
-    console.log('User:', User);  // Logs the users
-    return User;  // Return the fetched users
+    console.log('User:', response);  // Logs the users
+    return response;  // Return the fetched users
   } catch (err) {
     console.error('Error fetching users:', err);  // Log and handle any errors
     throw err;  // Rethrow the error for upstream error handling

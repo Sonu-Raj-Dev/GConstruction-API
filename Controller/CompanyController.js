@@ -1,9 +1,9 @@
 
-const CommonService = require('./CommonService/CommonService');
+const CompanyService = require('../Services/CompanyServices');
 
 exports.Create = async (req, res) => {
   try {
-    const Company = await userService.CreateCompany(req.body);
+    const Company = await CompanyService.Create(req.body);
     res.status(201).json({ success: true, data: Company });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
@@ -12,7 +12,7 @@ exports.Create = async (req, res) => {
 
 exports.getAllCompany = async (req, res) => {
   try {
-    const Company = await CommonService.getAllCompany();
+    const Company = await CompanyService.getAllComapany();
     console.log(Company);
     res.status(200).json({ success: true, data: Company });
   } catch (error) {

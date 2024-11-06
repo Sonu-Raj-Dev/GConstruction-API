@@ -20,7 +20,7 @@ exports.Create = async (req,res) => {
     const Users = await userService.Create(Data); 
      // No callback here, just await the result
     console.log('Users:', Users);  // Logs the users
-    return Users;  // Return the fetched users
+    res.status(200).json({ success: true, data: Users });
   } catch (err) {
     console.error('Error fetching users:', err);  // Log and handle any errors
     throw err;  // Rethrow the error for upstream error handling
