@@ -15,28 +15,29 @@ exports.getAllUsers = async () => {
   }
 };
 
-
 exports.Create = async (Data) => {
   try {
     if (Data._id) {
+      // Update the user if _id exists
       const response = await User.findByIdAndUpdate(
-        Data._id,  // Document ID for update
-        Data,     // Updated data
-        { new: true, upsert: true }  // Options to return the updated doc and insert if not found
+        Data._id,   // The document's unique _id
+        Data,        // The data to update
+        { new: true, upsert: false }  // Return updated document, do not insert if not found
       );
 
       console.log('Updated Employee:', response);
       return response;
-
     } else {
-      const response = await User.insertMany(Data);
-      // No callback here, just await the result
-      console.log('User:', response);  // Logs the users
-      return response;  // Return the fetched users
+      // Create a new user if no _id exists
+      const user = new User(Data);
+      const response = await user.save();  // Save the new user document
+
+      console.log('Created User:', response);
+      return response;  // Return the created user
     }
   } catch (err) {
-    console.error('Error fetching users:', err);  // Log and handle any errors
-    throw err;  // Rethrow the error for upstream error handling
+    console.error('Error:', err);  // Log the error
+    throw err;  // Rethrow error for upstream handling
   }
-
 };
+
