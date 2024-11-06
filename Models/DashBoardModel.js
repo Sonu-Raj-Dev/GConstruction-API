@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
+const DashBoardSchema = new mongoose.Schema({
   IsActive: { type: Boolean },  // Changed "0" to boolean
   CreatedBy: { type: String },
   CreatedDate: { type: String },
@@ -8,10 +8,14 @@ const UserSchema = new mongoose.Schema({
   FirstName: { type: String},
   LastName: { type: String },
   ModifiedBy: { type: String },
-  ModifiedDate: { type: String}
+  ModifiedDate: { type: String},
+  CompanyId:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref:"tblCompany"
+  }
 }, { timestamps: true });
 
 // Explicitly specify the collection name as 'tblemployee'
-const UserModel = mongoose.model("tblemployee", UserSchema);
+const DahBoardModel = mongoose.model("tblemployee", DashBoardSchema);
 
-module.exports = UserModel;
+module.exports = DahBoardModel;

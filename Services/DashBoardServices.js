@@ -1,14 +1,11 @@
 // services/userService.js
-const User = require('../Models/EmployeeModel');
+const User = require('../Models/DashBoardModel');
 
-exports.createUser = async (userData) => {
-  const user = new User(userData);
-  return await user.save();
-};
 
 exports.getAllUsers = async () => {
   try {
-    const users = await User.find();  // No callback here, just await the result
+    const users = await User.find(); 
+     // No callback here, just await the result
     console.log('Users:', users);  // Logs the users
     return users;  // Return the fetched users
   } catch (err) {
