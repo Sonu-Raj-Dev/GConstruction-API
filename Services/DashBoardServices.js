@@ -14,10 +14,9 @@ exports.getAllUsers = async () => {
   }
 };
 
-exports.Create = async (data) => {
+exports.Create = async (Data) => {
   try {
     if (Data._id) {
-      // Update the existing company document
       const response = await user.findByIdAndUpdate(
         Data._id,  // Document ID for update
         Data,     // Updated data
@@ -28,7 +27,7 @@ exports.Create = async (data) => {
       return response;
 
     } else {
-      const response = await User.insertMany(data);
+      const response = await User.insertMany(Data);
       // No callback here, just await the result
       console.log('User:', response);  // Logs the users
       return response;  // Return the fetched users
