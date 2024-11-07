@@ -3,7 +3,7 @@ const router = express.Router();
 const EmployeeMaster = require('../Controller/EmployeeMasterController');
 const CompanyController=require('../Controller/CompanyController');
 const DashBoardController=require('../Controller/DashBoardController');
-
+const CalenderController=require('../Controller/CalenderController');
 
 // Employee Details
 router.post('/EmployeeMaster/Create', EmployeeMaster.Create);
@@ -17,6 +17,10 @@ router.get('/Company/getAllCompany',CompanyController.getAllCompany);
 
 router.get('/DashBoard/getDahBoardData', DashBoardController.getDahBoardData);
 
+
+// Calender Data
+router.post('/Calender/Create',CalenderController.Create);
+router.get('/Calender/getCalenderData',CalenderController.getCalenderData);
 
 
 module.exports = router; // Ensure the router is exported
