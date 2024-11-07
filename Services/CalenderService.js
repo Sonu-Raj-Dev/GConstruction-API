@@ -33,15 +33,17 @@ exports.Create = async (Data) => {
 };
 
 
-
-exports.getCalenderData = async () => {
+exports.getCalenderData = async (Data) => {
   try {
-    const response = await Calender.find(); 
-     // No callback here, just await the result
-    console.log('Calender:', response);  // Logs the users
-    return response;  
+    const EmployeeId = Data.EmployeeId;
+    console.log(`EmployeeId`,EmployeeId);
+    const response = await Calender.find({ EmployeeId: EmployeeId });  // Use an object to query by EmployeeId
+    
+    console.log('Calender:', response);  // Logs the calendar data
+    return response;  // Return the fetched data
   } catch (err) {
     console.error('Error fetching Calender:', err);  // Log and handle any errors
     throw err;  // Rethrow the error for upstream error handling
   }
 };
+

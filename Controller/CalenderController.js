@@ -5,7 +5,8 @@ const CalenderService = require('../Services/CalenderService');
 
 exports.getCalenderData = async (req, res) => {
   try {
-    const users = await CalenderService.getCalenderData();
+    const Data=req.body;
+    const users = await CalenderService.getCalenderData(Data);
     console.log(users);
     res.status(200).json({ success: true, data: users });
   } catch (error) {
