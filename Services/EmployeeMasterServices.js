@@ -1,5 +1,5 @@
 // services/userService.js
-const User = require('../Models/DashBoardModel');
+const User = require('../Models/EmployeeModel');
 
 
 exports.getAllUsers = async () => {

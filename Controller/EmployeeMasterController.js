@@ -1,6 +1,6 @@
 // controllers/userController.js
-const User = require('../Models/DashBoardModel');
-const userService = require('../Services/DashBoardServices');
+const User = require('../Models/EmployeeModel');
+const userService = require('../Services/EmployeeMasterServices');
 
 
 exports.getUsers = async (req, res) => {

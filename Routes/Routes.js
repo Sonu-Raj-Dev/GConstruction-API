@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../Controller/DashBoardController');
+const EmployeeMaster = require('../Controller/EmployeeMasterController');
 const CompanyController=require('../Controller/CompanyController');
 
 // Employee Details
-router.post('/DashBoard/Create', userController.Create);
-router.get('/DashBoard/getuser', userController.getUsers);
+router.post('/EmployeeMaster/Create', EmployeeMaster.Create);
+router.get('/EmployeeMaster/getuser', EmployeeMaster.getUsers);
 
 // Company Details
 router.post('/Company/Create',CompanyController.Create);
