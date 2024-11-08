@@ -35,7 +35,7 @@ exports.Create = async (Data) => {
 
 exports.getCalenderData = async (Data) => {
   try {
-    const EmployeeId = Data.EmployeeId;
+    const EmployeeId = Data._id;
     console.log(`EmployeeId`,EmployeeId);
     const response = await Calender.find({ EmployeeId: EmployeeId });  // Use an object to query by EmployeeId
     
