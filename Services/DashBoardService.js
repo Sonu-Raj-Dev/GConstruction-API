@@ -48,7 +48,8 @@ exports.getDashBoardData = async () => {
         attendanceRecords:{
           totalPresentDays,
           totalAbsentDays,
-          totalPayment
+          totalPayment,
+          EmployeeId:employees[0]._id
         }   
       };
     }));
