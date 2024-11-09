@@ -33,21 +33,19 @@ exports.Create = async (Data) => {
 };
 
 
-
-exports.getCalenderData = async (req, res) => {
+exports.getCalenderData = async (Data) => {
   try {
-    const EmployeeId = req.query.EmployeeId;  // Read from query parameters
-    console.log('EmployeeId:', EmployeeId);
-
-    const response = await Calender.find({ EmployeeId: EmployeeId });
-    console.log('Calendar Data:', response);
-
-    return res.status(200).json({
-      success: true,
-      data: response,
-    });
+    const EmployeeId = Data._id
+    console.log('Data',Data);
+    console.log(EmployeeId);
+    console.log(`EmployeeId`,EmployeeId);
+    const response = await Calender.find({ EmployeeId: EmployeeId });  // Use an object to query by EmployeeId
+    
+    console.log('Calender:', response);  // Logs the calendar data
+    return response;  // Return the fetched data
   } catch (err) {
-    console.error('Error fetching calendar data:', err);
-    res.status(500).json({ success: false, message: 'Server error' });
+    console.error('Error fetching Calender:', err);  // Log and handle any errors
+    throw err;  // Rethrow the error for upstream error handling
   }
 };
+
