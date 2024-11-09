@@ -10,7 +10,14 @@ const CalenderSchema = new mongoose.Schema({
   Remark:{type:String},
   Amount:{type:String},
   IsPresent:{type:Boolean},
-  EmployeeId:{type:String}
+  EmployeeId:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref:"tblemployee"
+  },
+  CompanyId:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref:"tblCompany"
+  }
 }, { timestamps: true });
 
 // Explicitly specify the collection name as 'tblemployee'
