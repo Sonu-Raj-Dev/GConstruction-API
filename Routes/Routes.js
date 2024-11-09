@@ -20,7 +20,7 @@ router.get('/DashBoard/getDahBoardData', DashBoardController.getDahBoardData);
 
 // Calender Data
 router.post('/Calender/Create',CalenderController.Create);
-router.get('/Calender/getCalenderData',CalenderController.getCalenderData);
+router.post('/Calender/getCalenderData',CalenderController.getCalenderData);
 
 
 module.exports = router; // Ensure the router is exported
