@@ -34,7 +34,6 @@ exports.getDashBoardData = async () => {
       let totalPresentDays = 0;
       let totalAbsentDays = 0;
       let totalPayment = 0;
-
       attendanceRecords.forEach((record) => {
         if (record.IsPresent) {
           totalPresentDays += 1;
@@ -46,9 +45,11 @@ exports.getDashBoardData = async () => {
 
       return {
         employees,
-       totalPresentDays,
-        totalAbsentDays,
-        totalPayment
+        attendanceRecords:{
+          totalPresentDays,
+          totalAbsentDays,
+          totalPayment
+        }   
       };
     }));
 
