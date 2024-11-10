@@ -33,7 +33,8 @@ exports.Create = async (Data) => {
 };
 exports.getCalenderData = async (Data) => {
   try {
-    const EmployeeId = Data._id;
+
+    const EmployeeId = Data.EmployeeId;
     const CompanyId = Data.CompanyId;  // Extract CompanyId from the Data object
 
     console.log('Data:', Data);
