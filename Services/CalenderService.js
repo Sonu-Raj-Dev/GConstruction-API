@@ -31,16 +31,21 @@ exports.Create = async (Data) => {
     throw err;  // Rethrow the error for upstream error handling
   }
 };
-
-
 exports.getCalenderData = async (Data) => {
   try {
-    const EmployeeId = Data._id
-    console.log('Data',Data);
-    console.log(EmployeeId);
-    console.log(`EmployeeId`,EmployeeId);
-    const response = await Calender.find({ EmployeeId: EmployeeId });  // Use an object to query by EmployeeId
-    
+    const EmployeeId = Data._id;
+    const CompanyId = Data.CompanyId;  // Extract CompanyId from the Data object
+
+    console.log('Data:', Data);
+    console.log('EmployeeId:', EmployeeId);
+    console.log('CompanyId:', CompanyId);
+
+    // Query for both EmployeeId and CompanyId
+    const response = await Calender.find({ 
+      EmployeeId: EmployeeId,
+      CompanyId: CompanyId
+    });
+
     console.log('Calender:', response);  // Logs the calendar data
     return response;  // Return the fetched data
   } catch (err) {
@@ -48,4 +53,5 @@ exports.getCalenderData = async (Data) => {
     throw err;  // Rethrow the error for upstream error handling
   }
 };
+
 
