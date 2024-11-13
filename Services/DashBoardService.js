@@ -23,11 +23,13 @@ exports.getDashBoardData = async () => {
     // Step 2: Fetch and calculate attendance for each employee
     const dashboardData = await Promise.all(employees.map(async (employee) => {
       // Ensure ObjectId is correctly instantiated with `new`
+      console.log("EmployeeIddd",employee._id);
+      console.log("CompanyIDDD:",employee.CompanyId);
       const attendanceRecords = await Attendance.find({
         EmployeeId: new mongoose.Types.ObjectId(employee._id),
         CompanyId: new mongoose.Types.ObjectId(employee.CompanyId)  // Ensure the attendance is for the same company
       });
-
+      
       console.log("Attendance Records for employee:", employee.FirstName, attendanceRecords);
 
       // Calculate total present days, absent days, and total payment
@@ -35,13 +37,16 @@ exports.getDashBoardData = async () => {
       let totalAbsentDays = 0;
       let totalPayment = 0;
       attendanceRecords.forEach((record) => {
-        if (record.IsPresent) {
-          totalPresentDays += 1;
+        console.log(record.Amount);
+        totalPresentDays += 1;
+        
+        // Check if Amount is valid before adding to totalPayment
+        if (record.Amount !== '' && record.Amount !== undefined && record.Amount !== null) {
           totalPayment += parseFloat(record.Amount);  // Sum payment for present days
-        } else {
-          totalAbsentDays += 1;
+          console.log("totalPayment", totalPayment);
         }
       });
+      
 
       return {
         employees,
