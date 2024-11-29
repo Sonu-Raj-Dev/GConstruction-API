@@ -38,8 +38,16 @@ exports.getDashBoardData = async () => {
       let totalPayment = 0;
 
       attendanceRecords.forEach((record) => {
-        totalPresentDays += 1;  // Increment the count for present days
-        
+
+        console.log("recordssssssss:",record);
+        if (record.IsPresent === true) {
+          totalPresentDays++;
+      }
+  
+      // Increment total absent days if record is marked as absent
+      if (record.IsPresent === false) {
+          totalAbsentDays++;
+      }
         // Check if Amount is valid before adding to totalPayment
         if (record.Amount !== '' && record.Amount !== undefined && record.Amount !== null) {
           totalPayment += parseFloat(record.Amount);  // Sum payment for present days
